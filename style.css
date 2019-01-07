@@ -1,0 +1,406 @@
+body{
+    display: none;
+}
+.vred {
+    overflow: hidden;
+    transition: height, 1.5s;
+}
+.one {
+    text-align: center;
+    transition-property: color;
+    transition-duration: .5s;
+}
+.rak img {
+    border-radius: 50%;
+    margin-top: 13em;
+    float: left;
+}
+.rak {
+    min-height: 30em;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    margin-left: -200px;
+    opacity: 0;
+    transition-property: margin-left, opacity;
+    transition-duration: .5s;
+    transition-delay: .5s;
+    margin-top: 2%;
+}
+ 
+/* IE8- CSS hack */
+
+}
+.rak p {
+    font-size: 200%;
+}
+.rak .text {
+    width: 300px;
+    height: 80%;
+    margin-top: 3%;
+    margin-left: -400px;
+    float: right;
+    opacity: 0;
+    transition-property: margin-left, opacity;
+    transition-duration: .5s;
+    transition-delay: 1.5s;
+}
+.nikotin {
+    height: 30em;
+    overflow: hidden;
+    margin-left: 200px;
+    opacity: 0;
+    transition-property: margin-left, opacity;
+    transition-duration: .5s;
+    transition-delay: 2s;
+    width: 100%;
+}
+ 
+/* IE8- CSS hack */
+
+.nikotin img {
+    border-radius: 50%;
+    margin-top: 13em;
+    float: right;
+}
+.nikotin .text {
+    width: 300px;
+    height: 90%;
+    margin-top: 2%;
+    margin-left: 400px;
+    float: left;
+    opacity: 0;
+    transition-property: margin-left, opacity;
+    transition-duration: .5s;
+    transition-delay: 3s;
+}
+.body {
+    overflow: hidden;
+}
+.gazi {
+    height: 30em;
+    overflow: hidden;
+    margin-left: -200px;
+    opacity: 0;
+    transition-property: margin-left, opacity;
+    transition-duration: .5s;
+    transition-delay: 4s;
+    width: 100%;
+    /* IE9, iOS 3.2+ */
+    margin-top: 2%;
+}
+ 
+/* IE8- CSS hack */
+
+.gazi img {
+    margin-top: 10em;
+    float: left;
+    
+}
+.gazi .text {
+    width: 300px;
+    height: 80%;
+    margin-top: 3%;
+    margin-left: -400px;
+    float: right;
+    opacity: 0;
+    transition-property: margin-left, opacity;
+    transition-duration: .5s;
+    transition-delay: 5s;
+}
+.symptoms {
+    height: auto;
+    text-align: center;
+    border: 10px solid red;
+    color: white;
+    background-color: red;
+    opacity: 0;
+    transition-property: opacity, color,transform, background-color, height;
+    transition-delay: 2s;
+    transition-duration: 1s;
+    transform: scale(0.5);
+}
+.symptoms h1 {
+    font-size: 450%;
+}
+.symptoms p {
+    font-size: 250%;
+}
+.symptoms h1:last-child {
+    font-size: 150%;
+}
+.overhidden {
+    height: 10%;
+    width: 100%;
+    border-radius: 5%;
+    overflow: hidden;
+    background-color: #e8e7e7;
+    transition: background-color, 1.5s;
+}
+.vis {
+    margin-left: 48%;
+    display: none;
+    margin-top: 2%;
+    transition-property: all;
+    transition-duration: .5s;
+}
+.hid {
+    display: block;
+    margin-left: 48%;
+    margin-top: 3%;
+    transition-property: all;
+    transition-duration: 1s;
+}
+.cir {
+    background-color: #b9b9b9;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    animation-name: tap;
+    animation-duration: 1s;
+    position: absolute;
+}
+.overhidden .text{
+    opacity: 0;
+    transition: opacity, .5s;
+    font-size: 150%;
+    margin-left: 5%;
+    margin-top: -2%;
+}
+/*Animation frames*/
+@keyframes tap{
+    from{
+        transform: scale(0);
+        opacity: 1;
+    }
+    to{
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+.v {
+    background-color: darkseagreen;
+    width: 34%;
+    height: 37em;
+    text-align: center;
+    float: left;
+}
+.v h1 {
+    font-size: 700%;
+}
+.z {
+    text-align: center;
+    width: 33%;
+    height: 37em;
+    float: left;
+    background-color: #ffc375;
+}
+.g, .l {
+    height: auto;
+    width: 49.5%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2em;
+    font-size: 120%;
+    float: left;
+}
+.g {
+    border-right: 2px solid green;
+}
+.l {
+    float: right;
+}
+.l a {
+    color: #b3b8b2;
+}
+.bros {
+    height: 103em;
+    transition-property: height, opacity, margin-top;
+    transition-delay: .5s;
+    transition-duration: 1.5s;
+    opacity: 0;
+    margin-top: 20%;
+}
+.btn{
+    position: fixed;
+    right: 4%;
+    top: 2%;
+}
+.tabak {
+    width: 90px;
+    height: 90px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #5cc2e2;
+    border-radius: 50%;
+    position: relative;
+}
+.tabak .text{
+    opacity: 0;
+    position: absolute;
+    font-weight: 700;
+    top: 28px;
+    font-size: 15px;
+    transform: scaleX(-1);
+    transition: .5s ease-in-out;
+}
+.tabak:hover .text{
+    transform: scaleX(1);
+    transition: .5s ease-in-out;
+    opacity: 1;
+    cursor: pointer;
+}
+.tabak:hover .ico{
+    transition: .5s ease-in-out;
+    opacity: 0;
+}
+.tabak .ico{
+    position: absolute;
+    font-size: 50px;
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    line-height: 94px;
+    opacity: 1;
+    animation: ico .9s ease-in-out infinite;
+    transition: .5s ease-in-out;
+}
+.tabak::before, .tabak::after{
+    content: '';
+    position: absolute;
+    border: 1px solid #29AEE3;
+    right: -20px;
+    top: -20px;
+    left: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    animation: pulse 1.8s linear infinite;
+    opacity: 0;
+}
+.tabak::after{
+    animation-delay: .5s;
+}
+@keyframes ico{
+    0%, 100%{
+        transform: rotate(-20deg);
+    }
+    50%{
+        transform: rotate(21deg);
+    }
+}
+@keyframes pulse{
+    0%{
+        transform: scale(.5);
+        opacity: 0;
+    }
+    50%{
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+.st {
+    background-image: url(netkur.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    height: 100%;
+}
+.stories{
+    margin: 5%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 5%;
+    height: 90%;
+    width: 90%;
+    background-color: darkorange;
+    float: inherit;
+}
+form[name="search"] input{
+    width: 100%;
+    height: 10%;
+    /*margin-top: -4%; */
+    font-size: 200%;
+}
+.button {
+    height: 4%;
+    width: 100%;
+    font-size: 150%;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: cornflowerblue;
+}
+.buttons{
+    transition: transform .5s;
+    width: 100%;
+    height: 4%;
+    position: absolute;
+    top: 12%;
+    z-index: -1;
+}
+.pop, .new{
+    float: left;
+    height: 100%;
+    font-size: 200%;
+    width: 49.5%;
+    text-align: center;
+    vertical-align: middle;
+}
+.pop{
+    border-right: 1px solid black;
+    background-color: orange;
+}
+.pop_stories, .new_stories, .make_stories, .search_stories, text_stories{
+    display: none;
+    position: absolute;
+    top: 21%;
+    background-color: orange;
+    height: 69%;
+    width: 100%;
+    overflow: auto;
+}
+.footer{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0px;
+}
+.make{
+    float: right;
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+}
+textarea#story{
+    width: 90%;
+    height: 100%;
+}
+.create{
+    width: auto !important;
+}
+.menu{
+    height: 5%;
+}
+.story{
+    height: 33%;
+}
+.nasu{
+    height: 10%;
+    vertical-align: middle;
+    font-weight: bolder;
+}
+.des{
+    height: 85%;
+    vertical-align: middle;
+    line-height: 300%;
+}
+.story:hover {
+    background-color: darkorange;
+}
