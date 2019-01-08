@@ -1,0 +1,11 @@
+{
+  "name": "myquitsmoking",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.15.0"
+  },
+  "scripts": {
+      "start": "node server.js"
+  }
+}
