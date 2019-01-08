@@ -477,4 +477,9 @@ function openS() {
     searchS.style.display = 'none';
     textS.style.display = 'block';
     textS.innerHTML = '<div class="nasu"><img height="100%" src="' + this.image + '"> ' + this.author + '</div><div class="story-texte">' + this.texte + '</div>';
+    var xhr = new XMLHttpRequest();
+    var body = 'i=' + this.index;
+    xhr.open('POST', '/openstory', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(body);
 }

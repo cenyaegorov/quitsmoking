@@ -2,7 +2,6 @@ var express = require('express');
 var fs = require('fs');
 var url = require('url');
 var bodyParser = require('body-parser');
-var data = require('./data');
 console.log(data);
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended: false});
@@ -129,8 +128,6 @@ app.post('/openstory', urlencodedParser, function(req, res) {
 app.listen(process.env.POST || 80);
 
 setInterval(update, 1000);
-if(data == {}) data = [];
-//data.prototype = Array.prototype;
 var stories = [];
 var newStories = [];
 var popStories = [];
