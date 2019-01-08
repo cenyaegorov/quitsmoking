@@ -2,7 +2,8 @@ var express = require('express');
 var fs = require('fs');
 var url = require('url');
 var bodyParser = require('body-parser');
-
+var data = require('./data');
+console.log(data);
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
@@ -118,10 +119,18 @@ app.post('/search', urlencodedParser, function(req, res) {
     res.send(stringify(resault));
     console.log('send');
 });
-app.listen(80);
+app.post('/openstory', urlencodedParser, function(req, res) {
+    fs.readFile(__dirname + '/stories/' + req.body.i + '/popular', 'utf-8', function(data) {
+        fs.writeFile(__dirname + '/stories/' + req.body.i + '/popular', parseInt(data) + 1, function() {
+            
+        });
+    });
+});
+app.listen(process.env.POST || 80);
 
 setInterval(update, 1000);
-
+if(data == {}) data = [];
+//data.prototype = Array.prototype;
 var stories = [];
 var newStories = [];
 var popStories = [];
@@ -171,6 +180,7 @@ function update() {
         }
     });
     popStories = populars(stories, pop);
+    fs.writeFile(__dirname + '/data', JSON.stringify(data), function() {});
 }
 function Story(name, surname, img, description, text) {
     if(stories[stories.length-1])
