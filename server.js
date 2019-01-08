@@ -2,7 +2,6 @@ var express = require('express');
 var fs = require('fs');
 var url = require('url');
 var bodyParser = require('body-parser');
-console.log(data);
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 
