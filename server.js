@@ -125,7 +125,7 @@ app.post('/openstory', urlencodedParser, function(req, res) {
         });
     });
 });
-http.listen(process.env.POST || 80);
+http.listen(process.env.POST || 443);
 
 setInterval(update, 1000);
 var stories = [];
