@@ -5,6 +5,134 @@ var bodyParser = require('body-parser');
 var app = express();
 var http = require('http').Server(app);
 var urlencodedParser = bodyParser.urlencoded({extended: false});
+fs.mkdir('stories', function() {});
+fs.mkdir('images', function() {});
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+app.get('/:url', function(req, res){
+    res.sendFile(__dirname + '/' + req.params.url);
+});
+app.post('/make', urlencodedParser, function(req, res) {
+    var text = req.body.story;
+    for( var i = 0; i < 1000; i++) {
+        if(!(text.indexOf('@') + 1)) break;
+        text.splice(text.indexOf('@'), 1, '/20');
+    }
+    for(var i = 0; i < 1000; i++) {
+        if(!(text.indexOf('&') + 1)) break;
+        text.splice(text.indexOf('&'), 1, '/21');
+    }
+    var description = req.body.description;
+    for( var i = 0; i < 1000; i++) {
+        if(!(description.indexOf('@') + 1)) break;
+        description.splice(description.indexOf('@'), 1, '/20');
+    }
+    for(var i = 0; i < 1000; i++) {
+        if(!(description.indexOf('&') + 1)) break;
+        description.splice(description.indexOf('&'), 1, '/21');
+    }
+    var name = req.body.name;
+    var surname = req.body.surname;
+    for( var i = 0; i < 1000; i++) {
+        if(!(surname.indexOf('@') + 1)) break;
+        surname.splice(surname.indexOf('@'), 1, '/20');
+    }
+    for(var i = 0; i < 1000; i++) {
+        if(!(surname.indexOf('&') + 1)) break;
+        surname.splice(surname.indexOf('&'), 1, '/21');
+    }
+    var file = req.body.file;
+    for( var i = 0; i < 1000; i++) {
+        if(!(file.indexOf('@') + 1)) break;
+        file.splice(file.indexOf('@'), 1, '/20');
+    }
+    for(var i = 0; i < 1000; i++) {
+        if(!(file.indexOf('&') + 1)) break;
+        file.splice(file.indexOf('&'), 1, '/21');
+    }
+    var story = new Story(name, surname, file, description, text);
+});
+app.post('/popular', urlencodedParser, function(req, res) {
+    console.log('getstoriespopular');
+    if (req.body.max > popStories.length) req.body.max = popStories.length-1;
+    var arr = popStories.slice(req.body.min, req.body.max+1);
+    console.log(arr);
+    var resault = [];
+    console.log('for');
+    for(var i = 0; i < arr.length; i++)
+        resault[i] = [];
+    console.log('forEach');
+    arr.forEach(function(item, i) {
+        console.log('reading');
+        resault[i][0] = fs.readFileSync('images/' + item.i + '.png');
+        resault[i][1] = fs.readFileSync('stories/' + item.i + '/description', 'utf-8');
+        resault[i][2] = item.i;
+        resault[i][3] = fs.readFileSync('stories/' + item.i + '/name', 'utf-8') + " " + fs.readFileSync('stories/' + item.i 
+
++ '/surname');
+        resault[i][4] = fs.readFileSync('stories/' + item.i + '/text', 'utf-8');
+        console.log('readed');
+    });
+    res.send(stringify(resault));
+    console.log('send');
+});
+app.post('/news', urlencodedParser, function(req, res) {
+    console.log('getstoriesnew');
+    if (req.body.max > newStories.length) req.body.max = newStories.length-1;
+    var arr = newStories.slice(req.body.min, req.body.max+1);
+    console.log(arr);
+    var resault = [];
+    console.log('for');
+    for(var i = 0; i < arr.length; i++)
+        resault[i] = [];
+    console.log('forEach');
+    arr.forEach(function(item, i) {
+        console.log('reading');
+        resault[i][0] = fs.readFileSync('images/' + item.i + '.png');
+        resault[i][1] = fs.readFileSync('stories/' + item.i + '/description', 'utf-8');
+        resault[i][2] = item.i;
+        resault[i][3] = fs.readFileSync('stories/' + item.i + '/name', 'utf-8') + " " + fs.readFileSync('stories/' + item.i 
+
++ '/surname');
+        resault[i][4] = fs.readFileSync('stories/' + item.i + '/text', 'utf-8');
+        console.log('readed');
+    });
+    res.send(stringify(resault));
+    console.log('send');
+});
+app.post('/search', urlencodedParser, function(req, res) {
+    var str = req.body.str;
+    var searched = search(str.split(' '));
+    if(req.body.max > searched.length) req.body.max = searched.length-1;
+    var arr = searched.slice(req.body.min, req.body.max+1);
+    var resault = [];
+    console.log('for');
+    for(var i = 0; i < arr.length; i++)
+        resault[i] = [];
+    console.log('forEach');
+    arr.forEach(function(item, i) {
+        console.log('reading');
+        resault[i][0] = fs.readFileSync('images/' + item.i + '.png');
+        resault[i][1] = fs.readFileSync('stories/' + item.i + '/description', 'utf-8');
+        resault[i][2] = item.i;
+        resault[i][3] = fs.readFileSync('stories/' + item.i + '/name', 'utf-8') + " " + fs.readFileSync('stories/' + item.i 
+
++ '/surname');
+        resault[i][4] = fs.readFileSync('stories/' + item.i + '/text', 'utf-8');
+        console.log('readed');
+    });
+    res.send(stringify(resault));
+    console.log('send');
+});
+app.post('/openstory', urlencodedParser, function(req, res) {
+    fs.readFile(__dirname + '/stories/' + req.body.i + '/popular', 'utf-8', function(data) {
+        fs.writeFile(__dirname + '/stories/' + req.body.i + '/popular', parseInt(data) + 1, function() {
+            
+        });
+    });
+});
+http.listen(process.env.PORT);
 
 setInterval(update, 1000);
 var stories = [];
@@ -71,7 +199,9 @@ function Story(name, surname, img, description, text) {
                         fs.writeFile('stories/' + l + '/text', text, function() {
                             var s = name + " " + surname + " " + description + " " + text;
                             s.toLocaleLowerCase();
-                            keywords = s.split(', ').join(' ').split('"').join('').split("'").join('').split(' - ').join(' ').split(' ');
+                            keywords = s.split(', ').join(' ').split('"').join('').split("'").join('').split(' - ').join(' 
+
+').split(' ');
                             stor['keywords'] = keywords;
                             fs.writeFile('stories/' + l + '/keywords', keywords.join(' '), function() {
                                 fs.writeFile('images/' + l + '.png', img, function() {
