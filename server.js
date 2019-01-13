@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var http = require('http').Server(app);
 var urlencodedParser = bodyParser.urlencoded({extended: false});
-
+fs.mkdir('stories', function() {});
+fs.mkdir('images', function() {});
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
