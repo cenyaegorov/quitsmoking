@@ -199,9 +199,7 @@ function Story(name, surname, img, description, text) {
                         fs.writeFile('stories/' + l + '/text', text, function() {
                             var s = name + " " + surname + " " + description + " " + text;
                             s.toLocaleLowerCase();
-                            keywords = s.split(', ').join(' ').split('"').join('').split("'").join('').split(' - ').join(' 
-
-').split(' ');
+                            keywords = s.split(' ');
                             stor['keywords'] = keywords;
                             fs.writeFile('stories/' + l + '/keywords', keywords.join(' '), function() {
                                 fs.writeFile('images/' + l + '.png', img, function() {
