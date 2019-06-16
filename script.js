@@ -64,7 +64,7 @@ search.addEventListener('click', function() {
                 story.image = item[0];
                 story.author = item[3];
                 story.onclick = openS;
-                story.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> ' + item[3] + '</div><div class="des">' + item[1] + '</div>';
+                story.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> <pre>  </pre>' + item[3] + '</div><div class="des">' + item[1] + '</div>';
                 self.appendChild(story);
             });
     }
@@ -97,7 +97,7 @@ searchS.onscroll = function() {
                 story.image = item[0];
                 story.author = item[3];
                 story.onclick = openS;
-                story.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> ' + item[3] + '</div><div class="des">' + item[1] + '</div>';
+                story.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> <pre>  </pre>' + item[3] + '</div><div class="des">' + item[1] + '</div>';
                 self.appendChild(story);
             });
     }
@@ -134,7 +134,7 @@ popS.popScroll = function() {
                 story.image = item[0];
                 story.author = item[3];
                 story.onclick = openS;
-                story.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> ' + item[3] + '</div><div class="des">' + item[1] + '</div>';
+                story.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> <pre>  </pre>' + item[3] + '</div><div class="des">' + item[1] + '</div>';
                 self.appendChild(story);
             });
             newS.popScroll();
@@ -167,7 +167,7 @@ newS.popScroll = function() {
                 div.image = item[0];
                 div.author = item[3];
                 div.onclick = openS;
-                div.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> ' + item[3] + '</div><div class="des">' + item[1] + '</div>';
+                div.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> <pre>  </pre>' + item[3] + '</div><div class="des">' + item[1] + '</div>';
                 self.appendChild(div);
             });
         };
@@ -416,7 +416,7 @@ function popScroll() {
                 div.image = item[0];
                 div.author = item[3];
                 div.onclick = openS;
-                div.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> ' + item[3] + '</div><div class="des">' + item[1] + '</div>';
+                div.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> <pre>  </pre>' + item[3] + '</div><div class="des">' + item[1] + '</div>';
                 self.appendChild(div);
             });
         };
@@ -450,7 +450,7 @@ function newScroll() {
                 div.image = item[0];
                 div.author = item[3];
                 div.onclick = openS;
-                div.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> ' + item[3] + '</div><div class="des">' + item[1] + '</div>';
+                div.innerHTML = '<div class="nasu"><img height="100%" src="' + item[0] + '"> <pre>  </pre>' + item[3] + '</div><div class="des">' + item[1] + '</div>';
                 self.appendChild(div);
             });
         };
@@ -476,7 +476,7 @@ function openS() {
     makeS.style.display = 'none';
     searchS.style.display = 'none';
     textS.style.display = 'block';
-    textS.innerHTML = '<div class="nasu"><img height="100%" src="' + this.image + '"> ' + this.author + '</div><div class="story-texte">' + this.texte + '</div>';
+    textS.innerHTML = '<div class="nasu"><img height="100%" src="' + this.image + '"> <pre>   </pre>' + this.author + '</div><div class="story-texte">' + this.texte + '</div>';
     var xhr = new XMLHttpRequest();
     var body = 'i=' + this.index;
     xhr.open('POST', '/openstory', true);
