@@ -70,7 +70,7 @@ app.post('/popular', urlencodedParser, function(req, res) {
         resault[i][2] = item.i;
         resault[i][3] = fs.readFileSync('stories/' + item.i + '/name', 'utf-8') + " " + fs.readFileSync('stories/' + item.i 
 
-+ '/surname');
++ '/surname', 'utf-8');
         resault[i][4] = fs.readFileSync('stories/' + item.i + '/text', 'utf-8');
         console.log('readed');
     });
@@ -94,7 +94,7 @@ app.post('/news', urlencodedParser, function(req, res) {
         resault[i][2] = item.i;
         resault[i][3] = fs.readFileSync('stories/' + item.i + '/name', 'utf-8') + " " + fs.readFileSync('stories/' + item.i 
 
-+ '/surname');
++ '/surname', 'utf-8');
         resault[i][4] = fs.readFileSync('stories/' + item.i + '/text', 'utf-8');
         console.log('readed');
     });
@@ -118,7 +118,7 @@ app.post('/search', urlencodedParser, function(req, res) {
         resault[i][2] = item.i;
         resault[i][3] = fs.readFileSync('stories/' + item.i + '/name', 'utf-8') + " " + fs.readFileSync('stories/' + item.i 
 
-+ '/surname');
++ '/surname', 'utf-8');
         resault[i][4] = fs.readFileSync('stories/' + item.i + '/text', 'utf-8');
         console.log('readed');
     });
